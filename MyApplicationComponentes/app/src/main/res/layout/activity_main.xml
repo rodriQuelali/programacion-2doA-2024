@@ -14,9 +14,10 @@
         android:layout_alignParentLeft="true"
 
         android:layout_alignParentTop="true"
+        android:layout_marginEnd="-100dp"
         android:background="@drawable/circulo"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="82dp"
         tools:layout_editor_absoluteY="-54dp" />
 
     <TextView
@@ -45,7 +46,7 @@
         app:srcCompat="@drawable/img" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/txtUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -83,10 +84,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/txtContrasena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -100,17 +101,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="INGRESAR"
+        android:layout_marginTop="20dp"
         android:background="@drawable/boton_diseno"
+        android:onClick="lanzar"
+        android:text="INGRESAR"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
