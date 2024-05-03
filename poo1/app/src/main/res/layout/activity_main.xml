@@ -46,6 +46,27 @@
             android:onClick="sumar"
             android:text="Suma" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="restar"
+            android:text="resta" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="mul"
+            android:text="multiplicacion" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="div"
+            android:text="division" />
+
         <TextView
             android:id="@+id/textResul"
             android:layout_width="match_parent"

@@ -1,48 +1,30 @@
 package com.example.poo1.clases;
 
 public class operacion {
-    private int num1;
-    private int num2;
-
-    //constructor
-    /*public operacion(int num1, int num2) {
-        this.num1 = num1;
-        this.num2 = num2;
-    }*/
-
-
-    //get and set
-    public int getNum1() {
-        return num1;
-    }
-
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
-
-    public int getNum2() {
-        return num2;
-    }
-
-    public void setNum2(int num2) {
-        this.num2 = num2;
-    }
 
     //metodos
 
-    public int suma(int nun1, int num2){
-        int s = num1 + num2;
-        return s;
+    public static int suma(int nun11, int num22){
+        return nun11 + num22;
     }
 
-    public Double suma(Double nun1, Double num2){
-        Double s = num1 + num2;
-        return s;
+    public static Double suma(Double nun1, Double num2){
+        return nun1 + num2;
+    }
+    public static Double resta(Double nun1, Double num2){
+        return nun1 - num2;
+    }
+    public static Double multiplicar(Double nun1, Double num2){
+        return nun1 * num2;
+    }
+    public static Double division(Double nun1, Double num2){
+        return nun1 / num2;
     }
 
 
 }
 
-//Operacion operacion = new Operacion(2,4);
-//operacion.suma();
+/*Operacion operacion = new Operacion();
+operacion.suma(2,4);
+operacion.suma(2.5,4.5);*/
 

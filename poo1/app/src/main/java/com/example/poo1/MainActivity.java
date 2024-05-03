@@ -26,10 +26,34 @@ public class MainActivity extends AppCompatActivity {
         txtResul = (TextView) findViewById(R.id.textResul);
     }
     public void sumar(View view){
-        int a,b;
-        a = Integer.parseInt(txt1.getText().toString());
-        b = Integer.parseInt(txt2.getText().toString());
-        operacion op1 = new operacion();
-        txtResul.setText(String.valueOf(op1.suma(a, b)));
+        double a,b;
+        a = Double.parseDouble(txt1.getText().toString());
+        b = Double.parseDouble(txt2.getText().toString());
+        txtResul.setText(String.valueOf(operacion.suma(a, b)));
+    }
+
+    public void restar(View view){
+        double a,b;
+        a = Double.parseDouble(txt1.getText().toString());
+        b = Double.parseDouble(txt2.getText().toString());
+        txtResul.setText(String.valueOf(operacion.resta(a, b)));
+    }
+
+    public void mul(View view){
+        double a,b;
+        a = Double.parseDouble(txt1.getText().toString());
+        b = Double.parseDouble(txt2.getText().toString());
+        txtResul.setText(String.valueOf(operacion.multiplicar(a, b)));
+    }
+    public void div(View view){
+        double a,b;
+        a = Double.parseDouble(txt1.getText().toString());
+        b = Double.parseDouble(txt2.getText().toString());
+        if(b != 0){
+            txtResul.setText(String.valueOf(operacion.division(a, b)));
+        }else {
+            txtResul.setText("no se puede hacer la division");
+        }
+
     }
 }
