@@ -17,60 +17,57 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ingresar primer valor" />
+            android:text="TextView" />
 
         <EditText
-            android:id="@+id/txt1"
+            android:id="@+id/editTextText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="Name" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ingresar segundo valor" />
+            android:text="TextView" />
 
         <EditText
-            android:id="@+id/txt2"
+            android:id="@+id/editTextText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="Name" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RadioButton" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RadioButton" />
+        </RadioGroup>
 
         <Button
-            android:id="@+id/btnSuma"
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="sumar"
-            android:text="Suma" />
-
-        <Button
-            android:id="@+id/btnSuma"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="restar"
-            android:text="resta" />
-
-        <Button
-            android:id="@+id/btnSuma"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="mul"
-            android:text="multiplicacion" />
-
-        <Button
-            android:id="@+id/btnSuma"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="div"
-            android:text="division" />
+            android:text="Button" />
 
         <TextView
-            android:id="@+id/textResul"
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Resiltado" />
+            android:text="TextView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

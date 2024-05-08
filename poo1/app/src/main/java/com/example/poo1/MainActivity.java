@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText txt1, txt2;
     TextView txtResul;
+    Button btnSuma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,18 @@ public class MainActivity extends AppCompatActivity {
         txt2 = (EditText) findViewById(R.id.txt2);
 
         txtResul = (TextView) findViewById(R.id.textResul);
+
+        btnSuma = (Button) findViewById(R.id.btnSuma);
+        ///llamando al metodo omclick bajo codigo
+        btnSuma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sumar();
+            }
+        });
+
     }
-    public void sumar(View view){
+    public void sumar(){
         double a,b;
         a = Double.parseDouble(txt1.getText().toString());
         b = Double.parseDouble(txt2.getText().toString());
