@@ -27,6 +27,19 @@
             android:textColor="@color/black"
             android:textSize="20dp" />
 
+        <EditText
+            android:id="@+id/txtAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adicionar" />
+
         <TextView
             android:id="@+id/tvHabitantes"
             android:layout_width="match_parent"
