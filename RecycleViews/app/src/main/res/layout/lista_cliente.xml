@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txtRazon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
@@ -22,7 +22,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtNit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NIT" />
