@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 
 import com.example.recycleviews.adapter.ListaAdapterCliente;
@@ -34,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         clientes.add(new Cliente("BRITO", 10256345));
         ListaAdapterCliente listaAdapterCliente = new ListaAdapterCliente(clientes);
         listaClientes.setAdapter(listaAdapterCliente);
+        listaAdapterCliente.setOnclickListener(new ListaAdapterCliente.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, Cliente cliente) {
+                Toast.makeText(MainActivity.this, "Razon: " + cliente.getRazonSocial() + "posicion" + position, Toast.LENGTH_SHORT).show();
 
+            }
+        });
     }
 }
