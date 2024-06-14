@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         listaAdapterCliente.setOnclickListener(new ListaAdapterCliente.OnItemClickListener() {
             @Override
             public void onItemClick(int position, Cliente cliente) {
+                //final String NOMBRE = "nombre";
+                Intent i = new Intent(MainActivity.this, MainActivity2.class);
+                i.putExtra("nombre",cliente.getRazonSocial());
+                i.putExtra("nit", cliente.getNit());
+                startActivity(i);
                 Toast.makeText(MainActivity.this, "Razon: " + cliente.getRazonSocial() + "posicion" + position, Toast.LENGTH_SHORT).show();
 
             }

@@ -35,7 +35,7 @@ public class ListaAdapterCliente extends RecyclerView.Adapter<ListaAdapterClient
     public void onBindViewHolder(@NonNull ListaAdapterCliente.ListaClienteViewHolder holder, int position) {
         //llamar lista Clientes;
         holder.txtR.setText(clientes.get(position).getRazonSocial());
-        holder.txtN.setText(clientes.get(position).getNit());
+        holder.txtN.setText(String.valueOf(clientes.get(position).getNit()));
     }
 
     //el tamano de la lista
