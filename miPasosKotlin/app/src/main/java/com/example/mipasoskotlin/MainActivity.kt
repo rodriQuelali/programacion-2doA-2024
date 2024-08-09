@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -16,8 +17,13 @@ import com.example.mipasoskotlin.models.Productos
 class MainActivity : AppCompatActivity() {
     lateinit var btnCalcular: Button
     lateinit var txtPrecio: EditText
+    lateinit var txtNombre:EditText
     lateinit var tvResul: TextView
     lateinit var spLista:Spinner
+    lateinit var listPro:ListView
+
+    lateinit var productosList:MutableList<String>
+    lateinit var adapterListView:ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +38,9 @@ class MainActivity : AppCompatActivity() {
         //codigo
         cargarR()
         estadoOnclick()
+        cargarListaProducto()
 
-        //cargar listad e datos en spinner
+        //cargar lista de datos en spinner
         val listaPaises = arrayOf("USA", "BOL", "ESP")
         val adaptador1 = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaPaises)
         spLista.adapter = adaptador1
@@ -45,23 +52,31 @@ class MainActivity : AppCompatActivity() {
         txtPrecio = findViewById(R.id.txtProducto)
         tvResul = findViewById(R.id.tvResultado)
         spLista = findViewById(R.id.spPaises)
+        listPro = findViewById(R.id.listaProductos)
+        txtNombre = findViewById(R.id.txtNombre)
     }
 
     fun estadoOnclick(){
         btnCalcular.setOnClickListener(){
 
-            val laptop = Productos("laptop", txtPrecio.text.toString().toDouble())
+            val laptop = Productos(txtNombre.text.toString(), txtPrecio.text.toString().toDouble())
             //val datosRe : Double = laptop.calIVA()
 
             when(spLista.selectedItem.toString()){
-                "USA"-> tvResul.text = laptop.calIVA(0.03).toString()
-                "BOL"-> tvResul.text = laptop.calIVA(0.13).toString()
-                "ESP"-> tvResul.text = laptop.calIVA(0.05).toString()
+                "USA"-> productosList.add(laptop.nombre + ", " +laptop.precio+ "IVA: "+laptop.calIVA(0.03).toString())
+                "BOL"-> productosList.add(laptop.nombre + ", " +laptop.precio+ "IVA: "+laptop.calIVA(0.13).toString())
+                "ESP"-> productosList.add(laptop.nombre + ", " +laptop.precio+ "IVA: "+laptop.calIVA(0.05).toString())
             }
+            listPro.adapter=adapterListView
 
         }
     }
 
-
+    fun cargarListaProducto(){
+        //val productos = arrayOf("LAPTOP", "MOUSE")
+        productosList = mutableListOf("3500")
+        adapterListView = ArrayAdapter(this, android.R.layout.simple_list_item_1,productosList)
+        listPro.adapter=adapterListView
+    }
 
 }
