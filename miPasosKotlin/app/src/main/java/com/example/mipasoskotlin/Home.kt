@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class Home : AppCompatActivity() {
 
-    lateinit var btnIvaPro: Button
+    lateinit var btnIvaPro: CardView
+    lateinit var btnProducto: CardView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,11 +29,17 @@ class Home : AppCompatActivity() {
 
     fun cargarR(){
         btnIvaPro = findViewById(R.id.btnIvaProducto)
+        btnProducto = findViewById(R.id.btnProducto)
     }
 
     fun estadoBoton(){
         btnIvaPro.setOnClickListener{
             val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+        }
+
+        btnProducto.setOnClickListener{
+            val i = Intent(this, Productos::class.java)
             startActivity(i)
         }
     }

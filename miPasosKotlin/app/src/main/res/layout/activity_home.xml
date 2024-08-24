@@ -19,7 +19,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:fontFamily="sans-serif-black"
-        android:text="BIENVENIDO"
+        android:text="BIENVENIDO {nombre}"
         android:textSize="35dp"
         android:textAlignment="center"
         tools:ignore="MissingConstraints" />
@@ -44,6 +44,7 @@
         app:rowCount="2">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/btnIvaProducto"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
@@ -66,19 +67,20 @@
                     android:layout_width="60dp"
                     android:layout_height="55dp"
                     android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/nuevologin" />
+                    app:srcCompat="@drawable/iva" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
-                    android:text="TextView"
+                    android:text="CALCULAR IVA DE PRODUCTO"
                     android:textAlignment="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/btnProducto"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
@@ -101,19 +103,20 @@
                     android:layout_width="60dp"
                     android:layout_height="55dp"
                     android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/nuevologin" />
+                    app:srcCompat="@drawable/producto" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
-                    android:text="TextView"
+                    android:text="PRODUCTO"
                     android:textAlignment="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/btnCliente"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
@@ -143,12 +146,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
-                    android:text="TextView"
+                    android:text="CLIENTES"
                     android:textAlignment="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/btnSalir"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
@@ -171,14 +175,14 @@
                     android:layout_width="60dp"
                     android:layout_height="55dp"
                     android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/nuevologin" />
+                    app:srcCompat="@drawable/salida" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
-                    android:text="TextView"
+                    android:text="SALIR"
                     android:textAlignment="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
