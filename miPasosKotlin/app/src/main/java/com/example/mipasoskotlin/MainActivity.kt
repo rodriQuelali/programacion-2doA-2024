@@ -7,14 +7,17 @@ import android.widget.EditText
 import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.mipasoskotlin.db.AdminSQLiteOpenHelper
 import com.example.mipasoskotlin.models.Productos
 
 class MainActivity : AppCompatActivity() {
     lateinit var btnCalcular: Button
+    lateinit var btnBuscar: Button
     lateinit var txtPrecio: EditText
     lateinit var txtNombre:EditText
     lateinit var tvResul: TextView
@@ -53,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         spLista = findViewById(R.id.spPaises)
         listPro = findViewById(R.id.listaProductos)
         txtNombre = findViewById(R.id.txtNombre)
+        btnBuscar = findViewById(R.id.btnbuscarProducto)
     }
 
     fun estadoOnclick(){
@@ -68,6 +72,20 @@ class MainActivity : AppCompatActivity() {
             }
             listPro.adapter=adapterListView
 
+        }
+
+        btnBuscar.setOnClickListener{
+            val admin = AdminSQLiteOpenHelper(this, "administracion", null, 1)
+            val bd = admin.writableDatabase
+            val query = "SELECT nombre,precio FROM productos WHERE id_productos = ?"
+            val fila = bd.rawQuery( query,arrayOf(txtNombre.text.toString()))
+            if (fila.moveToFirst()) {
+                txtNombre.setText(fila.getString(0))
+                txtPrecio.setText(fila.getString(1))
+            } else {
+                Toast.makeText(this, "No existe un artículo con dicho código", Toast.LENGTH_SHORT).show()
+            }
+                bd.close()
         }
     }
 

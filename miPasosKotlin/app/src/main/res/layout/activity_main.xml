@@ -42,6 +42,12 @@
             android:hint="PRECIO DE PRODUCTO"
             android:inputType="text" />
 
+        <Button
+            android:id="@+id/btnbuscarProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar Producto" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"

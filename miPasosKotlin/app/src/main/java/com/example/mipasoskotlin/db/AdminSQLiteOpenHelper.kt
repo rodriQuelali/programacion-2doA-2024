@@ -15,7 +15,7 @@ class AdminSQLiteOpenHelper(
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(
             "CREATE TABLE productos (" +
-                    "id_productos INTEGER PRIMARY KEY, " +
+                    "git  INTEGER PRIMARY KEY, " +
                     "nombre TEXT, " +
                     "precio REAL)"
         )

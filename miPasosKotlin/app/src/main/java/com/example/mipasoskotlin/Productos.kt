@@ -47,7 +47,7 @@ class Productos : AppCompatActivity() {
             registro.put("id_productos", txtCodigo.text.toString())
             registro.put("nombre", txtNom.text.toString())
             registro.put("precio", txtPrecio.text.toString())
-            db.insert("prodcutos", null, registro)
+            db.insert("productos", null, registro)
             db.close()
             txtCodigo.setText("")
             txtNom.setText("")
