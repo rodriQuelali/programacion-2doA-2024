@@ -15,11 +15,21 @@ class AdminSQLiteOpenHelper(
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(
             "CREATE TABLE productos (" +
-                    "git  INTEGER PRIMARY KEY, " +
+                    "id_producto  INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "nombre TEXT, " +
                     "precio REAL)"
         )
 
+        db?.execSQL(
+            "CREATE TABLE venta (" +
+                    "id_venta  INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "id_producto TEXT, " +
+                    "cantidad INTEGER," +
+                    "total INTEGER," +
+                    "fecha TEXT," +
+            "FOREIGN KEY (id_producto)"+" REFERENCES productos(id_producto))"
+
+        )
         /*val createTableQuery = "CREATE TABLE productos (" +
                 "id_producto INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT NOT NULL," +
@@ -31,5 +41,18 @@ class AdminSQLiteOpenHelper(
         // Aquí podrías manejar las actualizaciones de la base de datos.
         db?.execSQL("DROP TABLE IF EXISTS productos")
         onCreate(db)
+    }
+
+    fun getAllNames(): List<String> {
+        val names = mutableListOf<String>()
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT nombre,precio FROM productos", null)
+        if (cursor.moveToFirst()) {
+            do {
+                names.add(cursor.getString(cursor.getColumnIndexOrThrow("nombre")))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return names
     }
 }

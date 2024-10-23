@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         //codigo
         cargarR()
+        cargarDatosProducto()
         estadoOnclick()
         cargarListaProducto()
 
@@ -62,13 +63,13 @@ class MainActivity : AppCompatActivity() {
     fun estadoOnclick(){
         btnCalcular.setOnClickListener(){
 
-            val laptop = Productos(txtNombre.text.toString(), txtPrecio.text.toString().toDouble())
+            val laptop = Productos(txtNombre.text.toString(), txtPrecio.text.toString().toDouble(),1)
             //val datosRe : Double = laptop.calIVA()
 
             when(spLista.selectedItem.toString()){
-                "USA"-> productosList.add(laptop.nombre + ", " +laptop.precio+ "IVA: "+laptop.calIVA(0.03).toString())
-                "BOL"-> productosList.add(laptop.nombre + ", " +laptop.precio+ "IVA: "+laptop.calIVA(0.13).toString())
-                "ESP"-> productosList.add(laptop.nombre + ", " +laptop.precio+ "IVA: "+laptop.calIVA(0.05).toString())
+                "USA"-> productosList.add(laptop.getNombre() + ", " +laptop.getPrecio()+ "IVA: "+laptop.calIVA(0.03).toString())
+                "BOL"-> productosList.add(laptop.getNombre() + ", " +laptop.getPrecio()+ "IVA: "+laptop.calIVA(0.13).toString())
+                "ESP"-> productosList.add(laptop.getNombre() + ", " +laptop.getPrecio()+ "IVA: "+laptop.calIVA(0.05).toString())
             }
             listPro.adapter=adapterListView
 
@@ -94,6 +95,16 @@ class MainActivity : AppCompatActivity() {
         productosList = mutableListOf("3500")
         adapterListView = ArrayAdapter(this, android.R.layout.simple_list_item_1,productosList)
         listPro.adapter=adapterListView
+    }
+
+    fun cargarDatosProducto(){
+        val dbHelper = AdminSQLiteOpenHelper(this,"administracion",null,1)
+        val namesList = dbHelper.getAllNames()
+
+        val spinner: Spinner = findViewById(R.id.spProducto)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, namesList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
     }
 
 }

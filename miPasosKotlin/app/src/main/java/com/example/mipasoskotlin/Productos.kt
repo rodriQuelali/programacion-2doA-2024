@@ -2,14 +2,17 @@ package com.example.mipasoskotlin
 
 import android.content.ContentValues
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mipasoskotlin.db.AdminSQLiteOpenHelper
+import com.example.mipasoskotlin.models.Productos
 
 class Productos : AppCompatActivity() {
     lateinit var btnRegistroPro:Button
@@ -27,6 +30,7 @@ class Productos : AppCompatActivity() {
             insets
         }
         cargarR()
+
         estadoBoton()
     }
 
@@ -44,9 +48,13 @@ class Productos : AppCompatActivity() {
             val db = adminsql.writableDatabase
             val registro = ContentValues()
 
+
+            //realizando la intancia del objeto.
+            val objeto = Productos(txtNom.text.toString(), txtPrecio.text.toString().toDouble(),1)
+
             registro.put("id_productos", txtCodigo.text.toString())
-            registro.put("nombre", txtNom.text.toString())
-            registro.put("precio", txtPrecio.text.toString())
+            registro.put("nombre", objeto.getNombre())
+            registro.put("precio", objeto.getPrecio())
             db.insert("productos", null, registro)
             db.close()
             txtCodigo.setText("")
